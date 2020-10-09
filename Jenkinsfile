@@ -24,7 +24,7 @@ pipeline {
          }
           stage('uploading artifacts to jfrog artifactory') {
             steps{
-                   sh ' curl -X PUT -u ukkb96@gmail.com:Udaykiran@123 -T ./target/covid19-0.0.1-SNAPSHOT.jar "https://myjfrog9.jfrog.io/artifactory/libs-snapshot-local/covid19-0.0.1-SNAPSHOT.jar"'
+                   sh ' mvn deploy'
             }
           }
          

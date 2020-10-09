@@ -22,12 +22,7 @@ pipeline {
                 sh 'mvn test'
             }
          }
-          stage('uploading artifacts to jfrog artifactory') {
-            steps{
-                   sh 'mvn clean deploy'
-            }
-          }
-         
+               
          stage('Build image') {
             steps{
                 script {
@@ -59,6 +54,13 @@ pipeline {
                      -Dsonar.login=4cd6abc8a4287b96a6952eb6792c6815c867c5c0'
                 }
             }
-          
+            stage('uploading artifacts to jfrog artifactory') {
+            steps{
+                script{
+                    sh 'cp ./settings.xml ./m2/'
+                    sh 'cp ./settings-security.xml ./m2/'
+                    sh 'mvn clean deploy'
+            }
+          }
     }
 }

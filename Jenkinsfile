@@ -24,7 +24,7 @@ pipeline {
          }
           stage('uploading artifacts to jfrog artifactory') {
             steps{
-                   sh ' mvn deploy'
+                   sh 'mvn clean deploy'
             }
           }
          

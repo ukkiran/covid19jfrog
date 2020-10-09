@@ -60,6 +60,7 @@ pipeline {
                     sh 'cp ./settings.xml ./m2/'
                     sh 'cp ./settings-security.xml ./m2/'
                     sh 'mvn clean deploy'
+                }
             }
           }
     }
